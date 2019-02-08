@@ -31,8 +31,36 @@
     Start code
 
     ===================== */
+    //problem 1
+    var sum1 = 0;
+    for (var i = 1; i < 1000; i = i+1)
+    {
+      if (i%3 == 0) {
+      sum1 = sum1+i;}
+      else if (i%5 == 0) {
+      sum1 = sum1+i;}
+    }
+    console.log(sum1);
 
-
+    //problem 2
+    var Fibonacci = [];
+    Fibonacci.push(1);
+    Fibonacci.push(2);
+    sum_even = 2
+    for (var i = 2; Fibonacci[i-1] <= 4000000; i = i+1)
+    {
+      Fibonacci[i] = Fibonacci[i-1]+Fibonacci[i-2];
+      if (Fibonacci[i]%2 == 0) {
+      Fibonacci.push(Fibonacci[i]);
+      sum_even += Fibonacci[i];}
+      else {
+      Fibonacci.push(Fibonacci[i]);}
+    }
+    console.log(Fibonacci);
+    if (Fibonacci[-1] > 4000000) {
+    sum_even -= Fibonacci[-1];
+    }
+    console.log(sum_even);
 
     /* =====================
 

@@ -13,8 +13,8 @@
 
     <!--javascript imports-->
     <script src="leaflet.js"></script>
-    <script src="part4-data-clean.js"></script>
-    <script src="part4-data-dirty.js"></script>
+    <script src="part3-data-clean.js"></script>
+    <script src="part3-data-dirty.js"></script>
 
     <script>
 
@@ -63,14 +63,22 @@
 
     ===================== */
 
-    var data = bikeArrayClean;
 
     /* =====================
 
     Start code to filter data
 
     ===================== */
+    var dataFiltered = [];
 
+    for (var i = 0; i < bikeArrayClean.length; i = i+1) {
+    if (bikeArrayClean[i][3] > 20) {
+    var add_loc = [];
+    add_loc.push(bikeArrayClean[i][1]);
+    add_loc.push(bikeArrayClean[i][0]);
+    dataFiltered.push(add_loc);}
+    };
+    console.log(dataFiltered);
 
 
     /* =====================
@@ -99,12 +107,33 @@
     ===================== */
 
 
+    dataFiltered.forEach(function(element){
+    var makeAmarker =  L.marker(element);
+    makeAmarker.addTo(map)
+    });
 
     /* =====================
 
     End code to add markers to map
 
     ===================== */
+    //change code to account for the
+    //dirty data
+
+    var dataFiltered = [];
+
+    for (var i = 0; i < bikeArrayDirty.length; i = i+1) {
+    //if (bikeArrayClean[i][3] > 20) {
+    var add_loc = [];
+    add_loc.push(bikeArrayClean[i][1]);
+    add_loc.push(bikeArrayClean[i][0]);
+    dataFiltered.push(add_loc);}
+
+
+    dataFiltered.forEach(function(element){
+    var makeAmarker =  L.marker(element);
+    makeAmarker.addTo(map)
+    });
 
     </script>
   </body>
